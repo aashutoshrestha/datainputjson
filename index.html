@@ -29,7 +29,7 @@
     <div class="container">
             <blockquote><h5>Initial File</h5></blockquote>
             <form>
-                <input type="text" id="input_json" value="">
+                <input type="text" id="input_json" value='{"data": [{"id": 1,"word_porn": "This is word porn"}]}'>
                 <input id="btn" type="button" class="waves-effect waves-teal btn" value="Prepare" onclick="saveJson()" />
             </form>
             <br>
@@ -51,7 +51,7 @@
             var inputJson;
             function saveJson() {
                 var variable = document.getElementById('input_json').value;
-                document.getElementById('output').innerHTML = JSON.stringify(variable, null, 4);
+                document.getElementById('output').innerHTML = "Data Prepared, You can start added new data";
                 inputJson = JSON.parse(variable);
                 // let lastDataInput = inputJson.data.length - 1
                 // let lastData = inputJson.data[0]
