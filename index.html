@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Porn</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aes-js/3.1.2/index.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+</head>
+<style type="text/css">
+    #output {
+        width:100%;
+        height: 100%;
+        min-height:400px;
+        resize:none;
+    }
+    #btn {
+        color: white;
+
+    }
+    </style>
+<body>
+    <br>
+    <div class="container">
+            <blockquote><h5>Initial File</h5></blockquote>
+            <form>
+                <input type="text" id="input_json" value="">
+                <input id="btn" type="button" class="waves-effect waves-teal btn" value="Prepare" onclick="saveJson()" />
+            </form>
+            <br>
+            <br>
+            <blockquote><h5>Input Changes</h5></blockquote>
+            <form>
+                    <input type="text" id="input_word_porn" value="">
+                    <input id="btn"  type="button" class="waves-effect waves-light btn" value="Add Word Porn" onclick="addToJson()" />
+    
+                </form>
+            <br>
+            <blockquote><h5>Output json</h5></blockquote>
+            <textarea id="output"></textarea>
+
+    </div>
+
+    
+    <script type="text/javascript">
+            var inputJson;
+            function saveJson() {
+                var variable = document.getElementById('input_json').value;
+                document.getElementById('output').innerHTML = JSON.stringify(variable, null, 4);
+                inputJson = JSON.parse(variable);
+                // let lastDataInput = inputJson.data.length - 1
+                // let lastData = inputJson.data[0]
+
+                // document.getElementById('output').innerHTML = JSON.stringify(lastData.id + 1)
+            }
+            function addToJson() {
+                var wordPorn = document.getElementById('input_word_porn').value;
+                let lastDataInput = inputJson.data.length - 1
+                let lastData = inputJson.data[lastDataInput]                
+                let appendJson = {
+                    "id": lastData.id + 1,
+                    "word_porn": wordPorn
+                }
+                inputJson.data.push(appendJson)
+                document.getElementById('output').innerHTML = JSON.stringify(inputJson, null, 4);
+                
+                // document.getElementById('output').innerHTML = JSON.stringify({ foo: "sample", bar: "sample" }, null, 4);
+                // inputJson = JSON.parse(variable);
+            }
+        </script>
+</body>
+
+
+</html>
