@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aes-js/3.1.2/index.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </head>
@@ -50,7 +51,8 @@
             var inputJson;
             function saveJson() {
                 var variable = document.getElementById('input_json').value;
-                document.getElementById('output').innerHTML = "Data Prepared, You can start adding new data";
+                // document.getElementById('output').innerHTML = "Data Prepared, You can start adding new data";
+                window.alert("Data Prepared, You can start adding new data now.")
                 inputJson = JSON.parse(variable);
                 // let lastDataInput = inputJson.data.length - 1
                 // let lastData = inputJson.data[0]
