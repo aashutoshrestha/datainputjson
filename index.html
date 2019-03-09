@@ -43,6 +43,11 @@
             <br>
             <blockquote><h5>Output json</h5></blockquote>
             <textarea id="output"></textarea>
+            <br>
+            <br>
+
+            <a id="download" class="waves-effect waves-light btn">Download</a>
+
 
     </div>
 
@@ -72,6 +77,21 @@
                 
                 // document.getElementById('output').innerHTML = JSON.stringify({ foo: "sample", bar: "sample" }, null, 4);
                 // inputJson = JSON.parse(variable);
+            }
+            document.getElementById("download").onclick = function() {
+                // when clicked the button
+                var content = document.getElementById('output').value;
+                // a [save as] dialog will be shown
+                // window.open("data:application/txt," + encodeURIComponent(content), "_self");
+                // var text = "foo\nbar\nbaz";
+
+                var fileBlob = new Blob([content], {type: "application/octet-binary"});
+
+                var link = document.getElementById("download");
+                link.setAttribute("href", URL.createObjectURL(fileBlob));
+                link.setAttribute("download", "wordporn.json");
+                // link.appendChild(document.createTextNode("Save file"));
+                // document.body.appendChild(link);
             }
         </script>
 </body>
