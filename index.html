@@ -36,8 +36,10 @@
             <br>
             <blockquote><h5>Append New Data</h5></blockquote>
             <form>
-                    <input type="text" id="input_word_porn" value="">
-                    <input id="btn"  type="button" class="waves-effect waves-light btn" value="Add Word Porn" onclick="addToJson()" />
+                    <input type="text" id="input_word_porn" value="" placeholder="Poem">
+                    <input type ="text" id ="title" value="" placeholder="Title">
+                    <input type ="text" id="author" value="" placeholder="Author">
+                    <input id="btn"  type="button" class="waves-effect waves-light btn" value="Add Poem" onclick="addToJson()" />
     
                 </form>
             <br>
@@ -68,11 +70,15 @@
             }
             function addToJson() {
                 var wordPorn = document.getElementById('input_word_porn').value;
+                var titlePoem = document.getElementById('title').value;
+                var authorPoem = document.getElementById('author').value;
                 let lastDataInput = inputJson.data.length - 1
                 let lastData = inputJson.data[lastDataInput]                
                 let appendJson = {
                     "id": lastData.id + 1,
-                    "word_porn": wordPorn
+                    "desc": wordPorn,
+                    "author": authorPoem,
+                    "title" : titlePoem
                 }
                 inputJson.data.push(appendJson)
                 document.getElementById('output').innerHTML = JSON.stringify(inputJson, null, 4);
